@@ -77,3 +77,8 @@ To test interactively, run `npx @modelcontextprotocol/inspector pnpm --dir /ABS/
 - **Secrets.** Credentials live only in env/`.env` (gitignored) and are never logged or returned. Errors are mapped to plain messages without internals.
 - **Transport.** The server refuses a non-https backend URL unless it is localhost. HTTP mode binds `127.0.0.1` with DNS-rebinding protection by default. Set `ALLOWED_HOSTS` when exposing it on `0.0.0.0`, and put it behind TLS.
 - **Out of scope for the PoC:** the doc's target is OAuth via itsme with scopes `moments:read`/`moments:write` in place of passwords and pasted tokens.
+
+## Unfinished (PoC)
+
+- Login is a demo password or a pasted backend token; the target is OAuth via itsme with `moments:read` / `moments:write` scopes.
+- Confirming a moment and seeing its actions happen in KBC Mobile, not through the AI. That's by design: the MCP surface stays share, read and revoke.
