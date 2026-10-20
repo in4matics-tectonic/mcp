@@ -10,13 +10,13 @@ All data comes from the [backend API](https://github.com/in4matics-tectonic/back
 | `get_moment_plan` | Read-only: score, phase, actions (only after confirmation in KBC Mobile). Omit `moment` to list them all | `GET /v1/klanten/:id/momenten[/:moment]` |
 | `revoke_moment` | Deletes **all** signals of that moment | `DELETE /v1/klanten/:id/momenten/:moment` |
 
-`moment`: `GEZINSUITBREIDING | HUIS_KOPEN | ZAAK_STARTEN`. `fase`: `orienterend | plannend | beslist` (weight 0.35 / 0.55 / 0.85).
+`moment`: `GEZINSUITBREIDING | HUIS_KOPEN | TROUWEN | ZAAK_STARTEN | ZAAK_UITBREIDEN`. `fase`: `orienterend | plannend | beslist` (weight 0.35 / 0.55 / 0.85).
 
 ## Quick start
 
 ```bash
 pnpm install
-cp .env.example .env     # fill KBC_PASSWORD (= backend DEMO_PASSWORD) and pick the customer (lien / tom / sarah)
+cp .env.example .env     # fill KBC_PASSWORD (= backend DEMO_PASSWORD) and pick the customer (lien / tom / jonas)
 pnpm start               # stdio; normally your AI client starts it for you (see below)
 ```
 

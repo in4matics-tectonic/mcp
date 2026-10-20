@@ -4,7 +4,7 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 import { ApiError, type KbcApi } from './api.ts';
 
-const Moment = z.enum(['GEZINSUITBREIDING', 'HUIS_KOPEN', 'ZAAK_STARTEN']);
+const Moment = z.enum(['GEZINSUITBREIDING', 'HUIS_KOPEN', 'TROUWEN', 'ZAAK_STARTEN', 'ZAAK_UITBREIDEN']);
 
 const ok = (data: unknown) => ({ content: [{ type: 'text' as const, text: JSON.stringify(data, null, 2) }] });
 const fail = (text: string) => ({ content: [{ type: 'text' as const, text }], isError: true });
@@ -29,7 +29,7 @@ export function createServer(api: KbcApi) {
     { name: 'kbc-momentum', version: '0.1.0' },
     {
       instructions:
-        'KBC Momentum laat de klant een levensmoment (gezinsuitbreiding, huis kopen, zaak starten) delen met KBC, ' +
+        'KBC Momentum laat de klant een levensmoment (gezinsuitbreiding, huis kopen, trouwen, zaak starten of uitbreiden) delen met KBC, ' +
         'zodat Kate in KBC Mobile alles kan voorbereiden. Deel NOOIT iets zonder uitdrukkelijk akkoord van de klant, ' +
         'en deel nooit het gesprek, gezondheidsdetails of andere persoonlijke inhoud: enkel het moment en de fase. ' +
         'Deze server kan geen geld verplaatsen of producten afsluiten; uitvoering gebeurt altijd in KBC Mobile.',
